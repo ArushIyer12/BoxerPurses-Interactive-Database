@@ -25,25 +25,6 @@ finally:
   print()
 
 
-# views used 
-
-
-  # Create View BoxersByAvgPurse AS
-    #SELECT Boxers.Boxer, avg(Purse) as "Average Purse", count(Bouts.Bout_ID) as "# of fights"
-    #FROM Bouts
-    #INNER JOIN Boxers
-    #ON Boxers.Boxer_ID = Bouts.Boxer_ID
-    #GROUP BY Boxers.Boxer
-
-
-
-#Create View BoxersByAvgRealPurse AS
-    #SELECT Boxers.Boxer, avg(RPurse) as "Average Real Purse", #count(Bouts.Bout_ID) as "# of fights"
-    #FROM Bouts
-    #INNER JOIN Boxers
-    #ON Boxers.Boxer_ID = Bouts.Boxer_ID
-    #GROUP BY Boxers.Boxer
-
 dbCursor = dbConn.cursor()
 
 print("** Welcome to the BoxerPurses app **")
@@ -94,8 +75,6 @@ ORDER BY "Average Purse" desc
         print()
         continue
 
-      # rows = helper.select_n_rows(dbConn, sql, 10, (minPurse))
-
       print()
 
       print("Boxer Name : Average Purse: # of Fights Sanctioned by NSAC")
@@ -112,8 +91,6 @@ ORDER BY "Average Purse" desc
             print(result)
   
           rows = dbCursor.fetchmany(10)
-
-          # rows = helper.select_n_rows(dbConn, sql, 10, (minPurse))
   
         if len(rows) == 0:
           break
@@ -154,8 +131,6 @@ ORDER BY "Average Real Purse" desc
         print()
         continue
 
-      # rows = helper.select_n_rows(dbConn, sql, 10, (minPurse))
-
       print()
 
       print("Boxer Name : Average Purse: # of Fights Sanctioned by NSAC")
@@ -172,8 +147,6 @@ ORDER BY "Average Real Purse" desc
             print(result)
   
         rows = dbCursor.fetchmany(20)
-
-        # rows = helper.select_n_rows(dbConn, sql, 10, (minPurse))
   
         if len(rows) == 0:
           break
@@ -329,8 +302,6 @@ ORDER BY avg(Purse) desc; """
       plt.bar(x,y)
       plt.xticks(rotation = 90)
       plt.show(block = False)
-
-      
 
     
     elif selection == str(3):
